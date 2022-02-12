@@ -25,7 +25,6 @@ contract StarNotary is ERC721 {
 
     mapping(uint256 => uint256) public starsForSale;
 
-    
     // Create Star using the Struct
     function createStar(string memory _name, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
         Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
@@ -39,19 +38,12 @@ contract StarNotary is ERC721 {
         starsForSale[_tokenId] = _price;
     }
 
-
    
       // Function that allows you to convert an address into a payable address
     function _make_payable(address x) internal pure returns (address payable) {
         return address(uint160(x));
-        //return payable(x);  //If we're using Solidity > 0.6, you should use payable method:
-
+       
     }
-
-
-
-
-
 
     function buyStar(uint256 _tokenId) public  payable {
         require(starsForSale[_tokenId] > 0, "The Star should be up for sale");
@@ -73,9 +65,6 @@ contract StarNotary is ERC721 {
         //1. You should return the Star saved in tokenIdToStarInfo mapping
          return tokenIdToStarInfo[_tokenId].name;
     }
-
-
-
 
     // Implement Task 1 Exchange Stars function
     function exchangeStars(uint256 _tokenId1, uint256 _tokenId2) public {
