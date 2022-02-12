@@ -149,9 +149,3 @@ it("lets a user transfer a star", async () => {
   let starUser = await inst.ownerOf.call(starId);
   assert.equal(starUser, usr2);
 });
-
-it("lookUptokenIdToStarInfo test", async () => {
-  // 1. create a Star with different tokenId
-  // 2. Call your method lookUptokenIdToStarInfo
-  // 3. Verify if you Star name is the same
-});
